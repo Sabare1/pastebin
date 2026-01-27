@@ -1,0 +1,26 @@
+{
+  "name": "pastebin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sabare1/pastebin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Sabare1/pastebin/issues"
+  },
+  "homepage": "https://github.com/Sabare1/pastebin#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "postgres": "^3.4.8"
+  }
+}
