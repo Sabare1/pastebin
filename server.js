@@ -4,35 +4,23 @@ require('dotenv').config();
 const port = process.env.PORT || 3000;
 
 
+const viewPaste = require('./controllers/viewPaste');
+const getPaste = require('./controllers/getPaste');
+const createPaste = require('./controllers/createPaste');
+const entryCheck = require('./controllers/entryCheck');
 
-app.get('/api/healthz', (req, res) => {     //entry check
-    res.status(200).json({
-        "ok": true
-    });
-})
+app.use(express.json());
 
 
-app.post('/api/pastes', (req, res) => {     // create paste
-    res.status(201).json({
-        success: true,
-        message: "Created paste successfully"
-    })
-})
 
-app.get('/api/pastes/:id', (req, res) => {       // get paste (API)
-    res.status(200).json({
-        success: true, 
-        message: "paste content"
-    })
-})
 
-app.get('/p/:id', (req, res) => {              //get paste(HTML)
-    res.status(200).json({
-        success: true,
-        message: "HTML"
-    })
-})
+app.post('/api/pastes', createPaste);  // create paste
 
+app.get('/api/pastes/:id', getPaste);    // get paste (API)
+
+app.get('/p/:id', viewPaste);            // view paste (HTML)
+
+app.get('/api/healthz', entryCheck);    // health check
 
 app.listen(port, ()=> {
     console.log(`Server is listening on the port ${port}...`);
