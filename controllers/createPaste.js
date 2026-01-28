@@ -49,6 +49,7 @@ const createPaste = async (req, res) => {
         res.status(201).json({
             success: true,
             message: "Created paste successfully",
+            id: id,
             url: url
         })
 
